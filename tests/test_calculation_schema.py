@@ -51,7 +51,7 @@ class TestCalculationRead:
             "b": 3.0,
             "type": "Add",
             "result": 8.0,
-            "created_at": datetime.utcnow()
+            "created_at": str(datetime.utcnow())
         }
         calc = CalculationRead(**data)
         assert calc.id == 1
