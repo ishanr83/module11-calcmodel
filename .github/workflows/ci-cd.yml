@@ -55,7 +55,7 @@ jobs:
   build-and-push:
     needs: test
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && secrets.DOCKER_USERNAME != ''
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     
     steps:
     - name: Checkout code
@@ -75,6 +75,6 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/module11-calcmodel:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/module11-calcmodel:latest,${{ secrets.DOCKER_USERNAME }}/module11-calcmodel:${{ github.sha }}
         cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/module11-calcmodel:buildcache
         cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/module11-calcmodel:buildcache,mode=max
