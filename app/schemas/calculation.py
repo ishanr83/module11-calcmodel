@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, root_validator
 from typing import Literal, Optional
 from datetime import datetime
 
@@ -9,12 +9,11 @@ class CalculationCreate(BaseModel):
         ..., description="Operation type"
     )
     
-    @field_validator("b")
-    @classmethod
-    def validate_divisor(cls, v, info):
-        if info.data.get("type") == "Divide" and v == 0:
+    @root_validator
+    def validate_division(cls, values):
+        if values.get("type") == "Divide" and values.get("b") == 0:
             raise ValueError("Cannot divide by zero")
-        return v
+        return values
 
 class CalculationRead(BaseModel):
     id: int
@@ -22,10 +21,11 @@ class CalculationRead(BaseModel):
     b: float
     type: str
     result: Optional[float] = None
-    created_at: datetime
+    created_at: str
     
     class Config:
         from_attributes = True
+        orm_mode = True
 
 class CalculationUpdate(BaseModel):
     a: Optional[float] = None
