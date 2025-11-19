@@ -1,7 +1,5 @@
 # Module 11: Calculation Model with Factory Pattern
 
-[![CI/CD Pipeline](https://github.com/ishanr83/module11-calcmodel/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/ishanr83/module11-calcmodel/actions/workflows/ci-cd.yml)
-
 ## Overview
 
 This project implements a Calculation API with:
@@ -14,27 +12,27 @@ This project implements a Calculation API with:
 
 ## Features
 
-✅ **SQLAlchemy Calculation Model**
+ **SQLAlchemy Calculation Model**
 - Fields: `id`, `a`, `b`, `type`, `result`, `created_at`
 - Store results in database
 - Support for Add, Subtract, Multiply, Divide operations
 
-✅ **Pydantic Schemas**
+ **Pydantic Schemas**
 - `CalculationCreate`: Input validation with divide-by-zero check
 - `CalculationRead`: Output serialization
 - `CalculationUpdate`: Partial updates
 
-✅ **Factory Pattern**
+ **Factory Pattern**
 - Strategy pattern for calculation operations
 - Extensible design for new operations
 - Clean separation of concerns
 
-✅ **Comprehensive Testing**
+ **Comprehensive Testing**
 - 25 unit and integration tests
 - 90%+ code coverage
 - PostgreSQL integration tests
 
-✅ **CI/CD Pipeline**
+ **CI/CD Pipeline**
 - Automated testing on push
 - Docker image build and push
 - PostgreSQL container for testing
@@ -215,8 +213,6 @@ Coming in Module 12:
    - Tag with `latest` and commit SHA
    - Use layer caching for speed
 
-**Pipeline Status:** [![CI/CD](https://github.com/ishanr83/module11-calcmodel/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/ishanr83/module11-calcmodel/actions)
-
 ## Test Coverage
 
 **Current Coverage:** 90%+
@@ -242,25 +238,6 @@ pytest-asyncio==0.21.1
 httpx==0.25.1
 ```
 
-## Contributing
-
-This is an academic project for NJIT IS218. No external contributions accepted.
-
-## License
-
-Academic use only - NJIT IS218 Fall 2024
-
 ## Author
 
 Ishan Rehan (@ishanr83)
-
-## Acknowledgments
-
-- NJIT IS218 Course Materials
-- FastAPI Documentation
-- SQLAlchemy Documentation
-- Pydantic Documentation
-
----
-
-**Last Updated:** November 2024
